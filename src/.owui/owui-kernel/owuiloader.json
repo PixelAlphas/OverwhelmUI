@@ -1,0 +1,135 @@
+{ "namespace": "owuikernel_loader",
+  "test_textd@owui-common.test_text": {
+    "type": "label",
+    "text": "Panel working",
+    "shadow": true,
+    "anchor_from": "top_right",
+    "anchor_to": "top_right"
+  },
+  "fallbackconfig@owuikernel_config.configuration": {
+    "$fallback|default": true,
+    "variables": [
+      { "requires": "($fallback)",
+        "$configname|default": "Default §7(Fallback)",
+        "$ver|default": "1.0 §7(Fallback)",
+        "$key|default": "fallback",
+        "$example|default": false,
+        "$is_debug|default": false,
+        "$is_lite_mode|default": false
+      }
+    ]
+  },
+  "debugmode@owuikernel_loader.fallbackconfig": {
+    "type": "panel",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "$is_startscreen|default": false,
+    "$is_hudscreen|default": false,
+    "$is_pausescreen|default": false,
+    "$textanchor|default": "top_right",
+    "controls": [
+      { "textloader": {
+          "type": "stack_panel",
+          "ignored": "(not $is_debug)",
+          "layer": 69,
+          "use_child_anchors": true,
+          "anchor_from": "$textanchor",
+          "anchor_to": "$textanchor",
+          "controls": [
+            { "debugmodetext@owui-common.test_text": {
+                "$textdebug|default": "Debug mode [ §7Not detected? §f]",
+                "text": "$textdebug",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor",
+                "variables": [
+                  { "requires": "($is_startscreen)",
+                    "$textdebug": "Debug mode [ §astart_screen.json§f ]"
+                  },
+                  { "requires": "($is_hudscreen)",
+                    "$textdebug": "Debug mode [ §ahud_screen.json§f ]"
+                  },
+                  { "requires": "($is_pausescreen)",
+                    "$textdebug": "Debug mode [ §apause_screen.json§f ]"
+                  }
+                ]
+              }
+            },
+            { "confignametext@owui-common.test_text": {
+                "text": "('Config - ' + $configname)",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor"
+              }
+            },
+            { "isvaildconfigtext@owui-common.test_text": {
+                "$textconfig|default": "Valid Config: §cInvaild",
+                "text": "$textconfig",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor",
+                "variables": [
+                  { "requires": "($key = 'WWtkR00ySnRNWFprTWxaNVlrYzVjdz09')",
+                    "$textconfig": "Valid Config: §aVaild"
+                  },
+                  { "requires": "($key = 'fallback')",
+                    "$textconfig": "Valid Config: §cFallback Configuration."
+                  }
+                ]
+              }
+            },
+            { "isdefaultconfigtext@owui-common.test_text": {
+                "$textconfig|default": "Default Config: §cFalse",
+                "text": "$textconfig",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor",
+                "variables": [
+                  { "requires": "((not($example) and (not($is_lite_mode)))",
+                    "$textconfig": "Default Config: §aTrue"
+                  }
+                ]
+              }
+            },
+            { "empty": { "type": "panel", "size": [ 1, 10 ] }},
+            { "configkeytext@owui-common.test_text": {
+                "text": "('Config Key: ' + $key)",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor"
+              }
+            },
+            { "configvertext@owui-common.test_text": {
+                "text": "('Config Ver: ' + $ver)",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor"
+              }
+            },
+            { "gamever@owui-common.test_text": {
+                "text": "#text",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor",
+                "bindings": [
+                  { "binding_name": "#version" },
+                  { "binding_type": "view",
+                    "source_property_name": "('Game Ver: ' + #version)",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            },
+            { "empty2": { "type": "panel", "size": [ 1, 10 ] }},
+            { "exampletext@owui-common.test_text": {
+                "text": "('§7$example: §f' + $example)",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor"
+              }
+            },
+            {
+              "islightmodstext@owui-common.test_text": {
+                "text": "('§7$is_lite_mode: §f' + $is_lite_mode)",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

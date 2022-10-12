@@ -1,0 +1,6 @@
+{
+  "start_screen": {
+    "$screen_content": "owui-startscreen.owui_startscreen_content",
+    "$screen_bg_content": "owui-common.bg"
+  }
+}

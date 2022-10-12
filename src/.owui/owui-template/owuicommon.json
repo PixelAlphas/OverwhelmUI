@@ -1,0 +1,38 @@
+{ "namespace": "owui-common",
+  "test_text": {
+    "type": "label",
+    "size": [ "default", "default" ],
+    "text": "",
+    "controls": [
+      { "text_bg": {
+          "type": "image",
+          "size": [ "100% + 5px", "100%" ],
+          "texture": "textures/ui/Black",
+          "alpha": 0.7,
+          "layer": -1
+        }
+      }
+    ]
+  },
+  "bg": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "texture": ".owui/owui-assets/bg",
+    "layer": -90,
+    "fill": true,
+    "controls": [
+      {
+        "gradient": {
+          "type": "custom",
+          "gradient_direction": "horizontal",
+          "renderer": "gradient_renderer",
+          "color1": [ 0, 0, 0, 0.85 ],
+          "color2": [ 0, 0, 0, 0.0 ],
+          "layer": 1,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle"
+        }
+      }
+    ]
+  }
+}

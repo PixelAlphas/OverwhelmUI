@@ -1,0 +1,232 @@
+{
+  "namespace": "owui-startscreen",
+  "owui_startscreen_content": {
+    "type": "panel",
+    "layer": 24,
+    "controls": [
+      { "owui_bottomelement@owui-startscreen.owui_bottomelement": {}},
+      { "owui_topelement@owui-startscreen.owui_topelement": {}},
+      { "owui_leftelement@owui-startscreen.owui_leftelement": {}},
+      { "debugmode@owuikernel_loader.debugmode": { "$is_startscreen": true }}
+    ]
+  },
+  "owui_bottomelement": {
+    "type": "panel",
+    "controls": [
+      { "owui_whitebar": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": [ "125%", 100 ],
+          "offset": [ 0, 80 ],
+          "alpha": 0.7
+        }
+      },
+      { "owui_harlowlogo": {
+          "type": "image",
+          "texture": ".owui/owui-assets/harlowlogo",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 4 ,-2 ],
+          "size": [ 16, 16 ]
+        }
+      },
+      { "owui_version": {
+          "type": "label",
+          "color": "$0_color_format",
+          "text": "Project Overwhelm 0.1 Alpha",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 22, -8.5 ],
+          "font_type": "kazesawa",
+          "font_scale_factor": 1
+        }
+      },
+      { "owui_versionmc": {
+          "type": "label",
+          "color": "$0_color_format",
+          "text": "#text",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 22, -2 ],
+          "font_type": "kazesawa",
+          "font_scale_factor": 0.75,
+          "bindings": [
+            { "binding_name": "#version" },
+            { "binding_type": "view",
+              "source_property_name": "('Game Version: ' + #version + ' ( ©Mojang AB )')",
+              "target_property_name": "#text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "owui_topelement": {
+    "type": "panel",
+    "controls": [
+      { "owui_xboxpanel@owui-startscreen.owui_xboxpanel": {} }
+    ]
+  },
+  "owui_leftelement": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "100%", 32 ],
+    "offset": [ 4, -50 ],
+    "layer": 3,
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "controls": [
+      {
+        "play@owui-button.owui_lightglyphbutton": {
+          "size": [ 125, 25 ],
+          "$pressed_button_name": "$play_button_target",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$owui_text": "Play",
+          "$owui_textdesc": "Let's play minecraft!",
+          "$owui_iconimagepressed": ".owui/owui-assets/glyphs/buttonicons/start_screen/play_hover",
+          "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/play"
+        }
+      },
+      {
+        "setting@owui-button.owui_lightglyphbutton": {
+          "size": [ 125, 25 ],
+          "$pressed_button_name": "button.menu_settings",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$owui_text": "Settings",
+          "$owui_textdesc": "Tweak and changes some features.",
+          "$owui_iconimagepressed": ".owui/owui-assets/glyphs/buttonicons/start_screen/setting_hover",
+          "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/setting"
+        }
+      },
+      {
+        "achievement@owui-button.owui_lightglyphbutton": {
+          "size": [ 125, 25 ],
+          "$pressed_button_name": "button.menu_achievements",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$owui_text": "Achievements",
+          "$owui_textdesc": "Views your achievements.",
+          "$owui_iconimagepressed": ".owui/owui-assets/glyphs/buttonicons/start_screen/achievement_hover",
+          "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/achievement"
+        }
+      },
+      {
+        "skin@owui-button.owui_lightglyphbutton": {
+          "size": [ 125, 25 ],
+          "$pressed_button_name": "button.to_profile_screen",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$owui_text": "Skins",
+          "$owui_textdesc": "Change your player/character models.",
+          "$owui_iconimagepressed": ".owui/owui-assets/glyphs/buttonicons/start_screen/skin_hover",
+          "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/skin"
+        }
+      },
+      {
+        "marketplace@owui-button.owui_lightglyphbutton": {
+          "size": [ 125, 25 ],
+          "$pressed_button_name": "button.menu_store",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$owui_text": "Marketplace",
+          "$owui_textdesc": "If I were you, I'll never touch it.",
+          "$owui_iconimagepressed": ".owui/owui-assets/glyphs/buttonicons/start_screen/marketplace_hover",
+          "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/marketplace"
+        }
+      }
+    ]
+  },
+  "owui_xboxpanel": {
+    "type": "panel",
+    "controls": [
+      { "owui_xboxuserimageandusername": {
+          "type": "image",
+          "size": [ "100%c + 4px", 22 ],
+          "texture": "textures/ui/Black",
+          "layer": 3,
+          "alpha": 0.75,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [ 4, 4 ],
+          "controls": [
+            { "gamertagpicandlabelstackpanel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%cm + 35px", 22 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "offset": [ 0, 0 ],
+                "controls": [
+                  { "gamerpic_with_border": {
+                      "type": "panel",
+                      "size": [ 22, "100%" ],
+                      "controls": [
+                        { "gamerpic": {
+                            "type": "image",
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "size": [ 20, 20 ],
+                            "layer": 1,
+                            "bindings": [
+                              { "binding_name": "#gamerpic_texture_path", "binding_name_override": "#texture" },
+                              { "binding_name": "#gamerpic_texture_location_type", "binding_name_override": "#texture_file_system" }
+                            ]
+                          }
+                        },
+                        { "border_white@common.focus_border_white": {
+                            "layer": 3,
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "size": [ 22, 22 ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  { "label_panel": {
+                      "type": "panel",
+                      "size": [ "100%cm", "100%" ],
+                      "controls": [
+                        { "gamertag_label": {
+                            "type": "label",
+                            "shadow": true,
+                            "color": "$main_header_text_color",
+                            "layer": 1,
+                            "text": "#gamertag_label",
+                            "size": [ "default", 10 ],
+                            "offset": [ 4, 5 ],
+                            "anchor_from": "left_middle",
+                            "anchor_to": "left_middle",
+                            "bindings": [
+                              { "binding_name": "#gamertag_label" }
+                            ]
+                          }
+                        },
+                        { "message_label": {
+                            "type": "label",
+                            "shadow": true,
+                            "color": "$main_header_text_color",
+                            "layer": 1,
+                            "text": "§7You're playing as",
+                            "offset": [ 4, -5 ],
+                            "size": [ "default", 10 ],
+                            "anchor_from": "left_middle",
+                            "anchor_to": "left_middle"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

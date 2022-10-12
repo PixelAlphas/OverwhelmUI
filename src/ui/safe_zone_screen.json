@@ -1,0 +1,25 @@
+{
+  "content_panel/safe_zone_slider_x": {
+    "ignored": false
+  },
+
+  "content_panel/safe_zone_slider_y": {
+    "ignored": false
+  },
+
+  "content_panel/screen_position_slider_x": {
+    "ignored": false
+  },
+
+  "content_panel/screen_position_slider_y": {
+    "ignored": false
+  },
+
+  "safe_zone_screen/main_content_panel": {
+    "size": [ 192, 206 ]
+  },
+
+  "safe_zone_screen": {
+    "$is_full_screen_layout": true
+  }
+}

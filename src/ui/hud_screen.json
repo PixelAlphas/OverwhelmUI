@@ -1,0 +1,72 @@
+{
+  "preserved_actionbar_display": {
+  	"$update_string": "update",
+	  "type": "label",
+	  "text": "#text",
+	  "controls": [
+		  {
+			  "data_control": {
+				  "type": "panel",
+  				"size": [ 0, 0 ],
+	  			"bindings": [
+		  			{
+				  		"binding_name": "#hud_actionbar_text_string"
+			  		},
+  					{
+	  					"binding_name": "#hud_actionbar_text_string",
+		  				"binding_name_override": "#preserved_text",
+			  			"binding_condition": "visibility_changed"
+				  	},
+					  {
+  						"binding_type": "view",
+	  					"source_property_name": "(not (#hud_actionbar_text_string = #preserved_text) and not ((#hud_actionbar_text_string - $update_string) = #hud_actionbar_text_string))",
+		  				"target_property_name": "#visible"
+			  		}
+  				]
+	  		}
+  		}
+	  ],
+	  "bindings": [
+		  {
+  			"binding_type": "view",
+	  		"source_control_name": "data_control",
+		  	"source_property_name": "(#preserved_text - $update_string)",
+			  "target_property_name": "#text"
+		  }
+	  ]
+  },
+  "actionbarbindingtest": {
+    "type": "label",
+    "text": "#hud_actionbar_text_string",
+    "bindings": [
+      {
+        "binding_name": "#hud_actionbar_text_string"
+      }
+    ]
+  },
+  "hud_content": {
+    "type": "panel",
+    "$hud_size": [ "100%", "100%" ],
+    "$hud_player_rend_desktop_offset|default": [ 15, 15 ],
+    "variables": [
+      { "requires": "($is_holographic and not $is_living_room_mode)", "$hud_player_rend_desktop_offset": [ 100, 50 ] },
+      { "requires": "($compress_hud_width)", "$hud_size": [ "90%", "100%" ] }
+    ],
+    "size": "$hud_size",
+    "controls": [
+      { "root_panel@hud.root_panel": {} },
+      { "preserved_actionbar_display@hud.preserved_actionbar_display": {} },
+      { "actionbarbindingtest@hud.actionbarbindingtest": {} },
+      {
+            "test_textd@owuicommon.test_text": {
+              "type": "label",
+              "text": "UI is modified.\nExpect issues.",
+              "shadow": true,
+              "anchor_from": "top_right",
+              "anchor_to": "top_right"
+            }
+          },
+      { "camera_renderer@camera_renderer": {} }
+    ]
+  }
+}

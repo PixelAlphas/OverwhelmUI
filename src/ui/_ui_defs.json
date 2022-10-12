@@ -1,0 +1,16 @@
+{
+  "ui_defs": [
+    // /* Kernel Assets */ //
+    ".owui/owui-kernel/owuiloader.json",
+    "config.json",
+    
+    // /* Common Assets */ //
+    ".owui/owui-template/owuicommon.json",
+    ".owui/owui-template/owuibutton.json",
+    
+    // /* Screen Assets */ //
+    ".owui/owui-screen/owui-start_screen.json"
+    // /* Setting Assets */ //
+    // /* Module Assets */ //
+  ]
+}
