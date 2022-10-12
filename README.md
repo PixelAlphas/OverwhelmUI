@@ -14,3 +14,4 @@ It's pretty at alpha stage, so everything may subjects to change and may not rep
 
 ## Be warned.
 It's not really "beta" or "stable" releases, expect some issues like lagging issues, and horrible optimization.
+so don't expect high quality stability lol
