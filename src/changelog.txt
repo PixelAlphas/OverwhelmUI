@@ -1,0 +1,12 @@
+--- v0.1 Alpha 1 ---
+
+[ Initial Release - github ]
+[ Note - Many features from config such as appearance aren't
+         properly added. Don't issue for such unfinished
+         features for now. ]
+         
+[=] Modified Start Screen
+[=] Modified Kernel Config Checker
+[=] Added Debug screen for kernel
+[=] Added "contents.json" for better checking and
+    don't add any unnecessary files.
