@@ -121,77 +121,103 @@
       // unless you have the vaild configuration file.
       
   // ----------------------------------
-  
-  // - Common config -
-  // Safe and friendly config without any performance impact.
-    
-    "$example": false,
-      // - Example. -
-      // Example description
-      // [!] The first config, yeah. it is the first.
-      //     Practically it does nothing but to verify that
-      //     Kernel configuration is working
-      //     Be warned -- it does absolutely nothing.
-      // > Possible Values : false, true
-      // > Default Value : false???
-
-    "$is_debug": false,
-      // - Debug mode -
-      // Changes the UI to debug mode, enables its visual
-      // for debugging -- such as configuration lists,
-      // configuration verification, fallback detector,
-      // and so on.
-      // > Possible Values : false, true
-      // > Default Value : false
-
-    "$is_lite_mode": false,
-      // - Lite mode -
-      // Changes the pack to lite mode, disabling every 
-      // unnecessary visuals. allowing more performance
-      // and less intensive.
-      // [!] If you're still lagging, please consider using
-      //     subpack version instead.
-      // > Possible Values : false, true
-      // > Default Value : false
-    
+    /* [ Common ]
+     * 
+     * Regular configuration without any performance impact.
+    */
   // ----------------------------------
   
-  // - Appearance Config -
-  // Change or tweak how UI should be display, or set some
-  // vibes, preset, and etc.
-  // [!] If something is invalid, there might be no errors but
-  //     rather pink and black texture or completely invisible.
-  //     if things doesn't display well, feel free to change its
-  //     settings to default various.
-
-    "$menu_background": true,
-      // - Menu Background -
-      // Enables the Custom/Overwhelm vanilla background
-      // for main menu.
-      // > Possible Values : false, true
-      // > Default Value : true
-
-    "$is_mbg_blur": true,
-      // - Menu Background (Blur) -
-      // Enables the secondary background as a blur image.
-      // Only for settings/etc!
-      // ** Menu background {$menu_background} is required.
-      // > Possible Values : false, true
-      // > Default Value : true
-
-    "$custom_background_path": ""
-    "$custom_background_path_blur": ""
-      // - Custom background Path & Blur -
-      // Change the background from main menu to your desired
-      // image. Leaving blink will result Overwhelm vanilla 
-      // instead.
-      // * Can causes issues with wrong values.
-      // ** Menu background {$menu_background}is required.
-      // ** Menu background (Blur) {$is_mbg_blur} is required.
-      // *** Custom contents is required if sharing the config.
-      // > Possible Values : "textures/yourimage.png",
-      //                     "<Image file path>"
-      // > Default Value : ""
+    "$example": false,
+    /* - Examples -
+       first and usable config testing. it does absolute nothing upon enabling.
+       Because it used to deter whenever that work or not.
+    */
     
-  }
+    "$is_debug": false, // [ false ]
+    /* - Debug mode -
+       Displays "java edition"-ish debug screen for each individual screen 
+       that present with modified UI. the use of this is to debugging such as
+       configuration lists, verification, correct menu display,
+       fallback detector, and so on.
+    */
+    
+    "$is_lite_mode": false, // [ false ]
+    /* - Lite mode -
+       Improvements to performance, disabling almost every unnecessary visuals.
+       allowing more optimization, performance and less intensive for 
+       low-end devices.
+       
+       [!] If the lagging issues still present, consider
+           using "No config" subpack instead.
+    */
+    
+  // ----------------------------------
+    /* [ Appearance ]
+     * 
+     * Changes how menu looks and its vibes, with the cost of performance.
+    */
+  // ----------------------------------
+  
+  
+    "$menu_background": true, // [ true ]
+    /* - Menu Background (BG) -
+       essentially displays background image in outgame, such as
+       start screen, settings, world menu, and etc.
+       
+       [!] Performance may impact in low-end devices,
+           disabling this may dramatically improves it.
+           However, depends on background scales. the larger image
+           is, the more performance sinking.
+    */
+    
+    "$custom_bg_path": "", // [ "" ]
+    /* - Custom background path -
+       Use your own image for Menu background, like above option said.
+       "depends on background scales, the larger image is, the more
+       performance sinking." Be warned.
+       
+       Examples - "my_image" | Your image in pack folder.
+                  "textures/my_image" | image inside "textures" folder
+                  "textures/ui/my_image" | image inside "ui" texture folder
+                  "" | disables custom image path.
+       
+       [!] May requires "non-source" version of this UI to use it.
+           Or you can delete "content.json" in the pack order
+           to use this feature.
+           
+       [**] "$menu_background" is required to function.
+    */
+    
+    "$custom_bgblur_path": "", // [ "" ]
+    /* - Custom background blur path -
+       Like above said, but this one for blur background. may able to see in
+       world menu, settings and etc.
+       
+       Examples - "my_image" | Your image in pack folder.
+                  "textures/my_image" | image inside "textures" folder
+                  "textures/ui/my_image" | image inside "ui" texture folder
+                  "" | disables custom image path.
+       
+       [!] Will double performance impact with depends image scales.
+       
+       [**] "$menu_background" is required to function.
+    */
+    
+    "$xbox_nametag_display": true, // [ true ]
+    /* - Xbox nametag display -
+       Enables your current xbox nametag display on start screen and
+       pause screen. if you wanted to stay more private.
+    */
+    
+    "$dark_appearance": false // [ false ]
+    /* - UI Dark Appearance -
+       Enables dark visuals, allowing user to see dark contents fairly usable.
+       This will change a text with black background into text with underline,
+       Bottom bar will turn from white to black, and various visuals
+       improvement and enhancement for dark appearance.
+       
+       [!] Menu (and blur) background will be unaffected, this option is only
+           for UI appearance. Use "Custom background path" for your own.
+           *Overwhelm does not has its own dark menu background.*
+    */
 }

@@ -1,24 +1,53 @@
 { "namespace": "owuikernel_loader",
-  "test_textd@owui-common.test_text": {
-    "type": "label",
-    "text": "Panel working",
-    "shadow": true,
-    "anchor_from": "top_right",
-    "anchor_to": "top_right"
-  },
+
+  /* Loads configuration directly from "config.json".
+     and contains fallsafe configuration if the current
+     configuration goes wrong.
+     
+     Author - PixelAlpha/HarlowAether
+     Date - Oct 18, 2022
+  */
+  
+  // - Fallback configuration element -
+  // referenced the namespace and element from configuration
+  // element, order to check if anything is alright. if not,
+  // fallback config will be used.
+  // [!] Not optimized yet.
   "fallbackconfig@owuikernel_config.configuration": {
     "$fallback|default": true,
     "variables": [
-      { "requires": "($fallback)",
-        "$configname|default": "Default §7(Fallback)",
-        "$ver|default": "1.0 §7(Fallback)",
+      // checkers if the key isn't detected
+      { "requires": "(not ($key = 'WWtkR00ySnRNWFprTWxaNVlrYzVjdz09') and ($fallback))",
+        "$configname|default": "Default §7(Fallback - Key Failed)",
+        "$ver|default": "1.0 §7(Fallback - Key Failed)",
         "$key|default": "fallback",
         "$example|default": false,
         "$is_debug|default": false,
-        "$is_lite_mode|default": false
+        "$is_lite_mode|default": false,
+        "$menu_background|default": true,
+        "$custom_bg_path|default": "",
+        "$custom_bgblur_path|default": "",
+        "$xbox_nametag_display|default": true,
+        "$dark_appearance|default": false
+      },
+      // fallback config as manual setting
+      { "requires": "(($key = 'WWtkR00ySnRNWFprTWxaNVlrYzVjdz09) and ($fallback))",
+        "$configname|default": "Default §7(Fallback - Manual)",
+        "$ver|default": "1.0 §7(Fallback - Manual)",
+        "$key|default": "manually-fallback",
+        "$example|default": false,
+        "$is_debug|default": false,
+        "$is_lite_mode|default": false,
+        "$menu_background|default": true,
+        "$custom_bg_path|default": "",
+        "$custom_bgblur_path|default": "",
+        "$xbox_nametag_display|default": true,
+        "$dark_appearance|default": false
       }
     ]
   },
+  // - Debug mode -
+  // Visual for debugging configuration.
   "debugmode@owuikernel_loader.fallbackconfig": {
     "type": "panel",
     "anchor_from": "top_right",
@@ -69,6 +98,9 @@
                   { "requires": "($key = 'WWtkR00ySnRNWFprTWxaNVlrYzVjdz09')",
                     "$textconfig": "Valid Config: §aVaild"
                   },
+                  { "requires": "($key = 'manually-fallback')",
+                    "$textconfig": "Valid Config: §cFallback Configuration. ( Manual Mode )"
+                  },
                   { "requires": "($key = 'fallback')",
                     "$textconfig": "Valid Config: §cFallback Configuration."
                   }
@@ -81,7 +113,7 @@
                 "anchor_from": "$textanchor",
                 "anchor_to": "$textanchor",
                 "variables": [
-                  { "requires": "((not($example) and (not($is_lite_mode)))",
+                  { "requires": "( (not($example)) and (not($is_lite_mode)) and ($menu_background) and ($custom_bg_path = '') and ($custom_bg_path = '') and ($xbox_nametag_display))",
                     "$textconfig": "Default Config: §aTrue"
                   }
                 ]
@@ -123,6 +155,27 @@
             {
               "islightmodstext@owui-common.test_text": {
                 "text": "('§7$is_lite_mode: §f' + $is_lite_mode)",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor"
+              }
+            },
+            {
+              "menubgtext@owui-common.test_text": {
+                "text": "('§7$menu_background: §f' + $menu_background)",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor"
+              }
+            },
+            {
+              "menubgpathtext@owui-common.test_text": {
+                "text": "('§7$custom_bg_path: §f' + $custom_bg_path)",
+                "anchor_from": "$textanchor",
+                "anchor_to": "$textanchor"
+              }
+            },
+            {
+              "xboxntdtext@owui-common.test_text": {
+                "text": "('§7$xbox_nametag_display: §f' + $xbox_nametag_display)",
                 "anchor_from": "$textanchor",
                 "anchor_to": "$textanchor"
               }

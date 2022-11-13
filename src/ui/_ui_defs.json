@@ -9,6 +9,7 @@
     ".owui/owui-template/owuibutton.json",
     
     // /* Screen Assets */ //
+    ".owui/owui-screen/owui-play_screen.json",
     ".owui/owui-screen/owui-start_screen.json"
     // /* Setting Assets */ //
     // /* Module Assets */ //

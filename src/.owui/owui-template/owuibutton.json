@@ -76,6 +76,7 @@
   "owui_buttoniconcontent": {
     "type": "panel",
     "layer": 3,
+    "$owui_noimage|default": false,
     "$owui_text|default": "§7Text's Title not written.",
     "$owui_textdesc|default": "§7Text's Description not written.",
     "$owui_imagecontentsize|default": [ 16, 16 ],
@@ -85,6 +86,7 @@
           "anchor_from": "left_middle",
           "anchor_to": "left_middle",
           "offset": [ 2, 0 ],
+          "ignored": "$owui_noimage",
           "size": "$owui_imagecontentsize",
           "controls": [
             { "lxui_iconoutline": {
@@ -107,10 +109,19 @@
       },
       { "lxui_textcontent": {
           "type": "panel",
+          "$owui_titleoffset|default": [ 2, -5 ],
+          "$owui_textoffset|default": [ 2, 5 ],
+          "variables": [
+            {
+              "requires": "(not $owui_noimage)",
+              "$owui_titleoffset": [ 22, -5 ],
+              "$owui_textoffset": [ 22, 5 ]
+            }
+          ],
           "controls": [
             { "owui_titletext": {
                 "type": "label",
-                "offset": [ 22, -5 ],
+                "offset": "$owui_titleoffset",
                 "layer": 1,
                 "anchor_from": "left_middle",
                 "color": "$text_color",
@@ -122,7 +133,7 @@
             },
             { "owui_desctext": {
                 "type": "label",
-                "offset": [ 22, 5 ],
+                "offset": "$owui_textoffset",
                 "text_alignment": "left",
                 "anchor_from": "left_middle",
                 "anchor_to": "left_middle",
@@ -130,6 +141,7 @@
                 "font_scale_factor": 0.75,
                 "layer": 1,
                 "color": "$text_color",
+                "enable_profanity_filter": false,
                 "text": "$owui_textdesc"
               }
             }

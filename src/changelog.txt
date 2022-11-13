@@ -1,10 +1,31 @@
---- v0.1 Alpha 1 ---
 
-[ Initial Release - github ]
-[ Note - Many features from config such as appearance aren't
-         properly added. Don't issue for such unfinished
-         features for now. ]
-         
+--- v0.1 Alpha 2 (Nov 10, 2022) ---
+/* -- Re-working UI's --
+ *
+ * Improvements and bug fixes, Appearance's is added.
+ * Working alot with config system and introduction
+ * of world screen.
+ *
+*/
+[+] Added/Modified World Screen.
+[+] Adjustments to kernel config.
+[+] Massive improvements to templates.
+[+] Added few customization in configuration.
+    > Menu backgrounds and blurs
+    > Custom backgrounds directory
+    > Custom blurs background directory
+    > Displays user xbox nametag
+[+] Optimizations.
+[+] Revamped config file to look more visually.
+
+--- v0.1 Alpha 1 (Oct 3, 2022) ---
+/* -- Initial Release for github. --
+ *
+ * Many features from config such as appearance aren't
+ * properly added. Don't issue for such unfinished
+ * features for now.
+ *
+*/
 [=] Modified Start Screen
 [=] Modified Kernel Config Checker
 [=] Added Debug screen for kernel

@@ -14,23 +14,142 @@
       }
     ]
   },
-  "bg": {
-    "type": "image",
-    "size": [ "100%", "100%" ],
-    "texture": ".owui/owui-assets/bg",
-    "layer": -90,
-    "fill": true,
+  "bg@owuikernel_loader.fallbackconfig": {
+    "type": "panel",
+    "$owuivar_isblurbg|default": false,
     "controls": [
       {
         "gradient": {
           "type": "custom",
+          "size": [ "45%", "100%" ],
           "gradient_direction": "horizontal",
           "renderer": "gradient_renderer",
-          "color1": [ 0, 0, 0, 0.85 ],
+          "color1": [ 0, 0, 0, 1 ],
           "color2": [ 0, 0, 0, 0.0 ],
-          "layer": 1,
+          "layer": -89,
           "anchor_from": "left_middle",
           "anchor_to": "left_middle"
+        }
+      },
+      {
+        "bgblur": {
+          "type": "image",
+          "size": [ "100%", "100%" ],
+          "texture": "$menubgblur",
+          "layer": -90,
+          "ignored": "((not $menu_background) or (not $owuivar_isblurbg))",
+          "fill": true,
+          "variables": [
+            {
+              "requires": "($custom_bgblur_path = '')",
+              "$menubgblur": ".owui/owui-assets/bgblur"
+            },
+            {
+              "requires": "(not($custom_bgblur_path = ''))",
+              "$menubgblur": "$custom_bgblur_path"
+            }
+          ]
+        }
+      },
+      {
+        "bg": {
+          "type": "image",
+          "size": [ "100%", "100%" ],
+          "texture": "$menubg",
+          "layer": -91,
+          "ignored": "(not $menu_background)",
+          "fill": true,
+          "variables": [
+            {
+              "requires": "($custom_bg_path = '')",
+              "$menubg": ".owui/owui-assets/bg"
+            },
+            {
+              "requires": "(not($custom_bg_path = ''))",
+              "$menubg": "$custom_bg_path"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "owui_bottombar": {
+    "type": "panel",
+    "$owuivar_bartexture|default": "textures/ui/White",
+    "$owuivar_logotexture|default": ".owui/owui-assets/harlowlogo",
+    "$owuivar_versiontext|default": "Project Overwhelm 0.1 Alpha",
+    "$owuivar_screentitletext|default": "\"Main Menu\"",
+    "$owuivar_novermc|default": false,
+    "controls": [
+      { "owui_whitebar": {
+          "type": "image",
+          "texture": "$owuivar_bartexture",
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": [ "125%", 100 ],
+          "offset": [ 0, 80 ],
+          "alpha": 0.7
+        }
+      },
+      { "owui_harlowlogo": {
+          "type": "image",
+          "texture": "$owuivar_logotexture",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 4 ,-2 ],
+          "layer": 1,
+          "size": [ 16, 16 ]
+        }
+      },
+      { "owui_version": {
+          "type": "label",
+          "color": "$0_color_format",
+          "text": "$owuivar_versiontext",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": "$owuivar_novermcoffset",
+          "$owuivar_novermcoffset|default": [ 22, -8.5 ],
+          "font_type": "kazesawa",
+          "layer": 1,
+          "font_scale_factor": 1,
+          "variables": [
+            {
+              "requires": "$owuivar_novermc",
+              "$owuivar_novermcoffset": [ 22, -4 ]
+            }
+          ]
+        }
+      },
+      { "owui_versionmc": {
+          "type": "label",
+          "color": "$0_color_format",
+          "text": "#text",
+          "ignored": "$owuivar_novermc",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 22, -2 ],
+          "font_type": "kazesawa",
+          "font_scale_factor": 0.75,
+          "layer": 1,
+          "bindings": [
+            { "binding_name": "#version" },
+            { "binding_type": "view",
+              "source_property_name": "('Game Version: ' + #version + ' ( ©Mojang AB )')",
+              "target_property_name": "#text"
+            }
+          ]
+        }
+      },
+      { "owui_screen": {
+          "type": "label",
+          "color": "$0_color_format",
+          "text": "$owuivar_screentitletext",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "offset": [ -4, -4 ],
+          "font_type": "kazesawa",
+          "layer": 1,
+          "font_scale_factor": 1
         }
       }
     ]

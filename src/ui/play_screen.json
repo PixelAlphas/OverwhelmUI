@@ -1,0 +1,8 @@
+{
+  "play_screen@common.base_screen": {
+    "$screen_content": "owui-playscreen.owui_playscreen_root",
+    "$screen_bg_content": "owui-common.bg",
+    "$world_picker_screen": false,
+    "$owuivar_isblurbg": true
+  }
+}

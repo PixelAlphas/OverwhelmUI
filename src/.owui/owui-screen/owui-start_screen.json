@@ -3,64 +3,88 @@
   "owui_startscreen_content": {
     "type": "panel",
     "layer": 24,
+    "variables": [
+      { "requires": "(not $education_edition)",
+        "$globalui_panel": "owui-startscreen.owui_global_content"
+      },
+      { "requires": "$education_edition",
+        "$globalui_panel": "owui-startscreen.owui_edu_incompatible"
+      }
+    ],
+    "controls": [
+      { "owui_contents@$globalui_panel": {}}
+    ]
+  },
+  "owui_edu_incompatible": {
+    "type": "panel",
+    "controls": [
+      { "owui_edu_incompatible_element@owui-startscreen.owui_edu_incompatible_element": {}},
+      { "owui_bottomelement@owui-startscreen.owui_bottomelement": {}},
+      { "debugmode@owuikernel_loader.debugmode": { "$is_startscreen": true }}
+    ]
+  },
+  "owui_edu_incompatible_element": {
+    "type": "image",
+    "size": [ 250, 150 ],
+    "texture": "textures/ui/hud_tip_text_background",
+    "alpha": 0.7,
+    "controls": [
+      {
+        "eie_warningicon": {
+          "type": "image",
+          "size": [ 32, 32 ],
+          "texture": ".owui/owui-assets/majorwarning",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [ 0, 4 ]
+        }
+      },
+      {
+        "eie_title": {
+          "type": "label",
+          "text": "Incompatible with EDU version!",
+          "offset": [ 0, 40 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "font_scale_factor": 1.25,
+          "font_type": "MinecraftTen",
+          "shadow": true
+        }
+      },
+      {
+        "eie_titleline": {
+          "type": "image",
+          "offset": [ 0, 58 ],
+          "size": [ "95%", 1 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "layer": 1,
+          "texture": "textures/ui/White"
+        }
+      },
+      {
+        "eie_description": {
+          "type": "label",
+          "text": "It appears that you've running the game in education edition. this is disappointing because that is extremely incompatible and its known as super late version. I appreciate your time with messing around education edition. therefore, §cThis UI is incompatible.",
+          "offset": [ 0, 64],
+          "text_alignment": "center",
+          "size": [ "95%", "65%" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "font_type": "kazesawa",
+          "shadow": true
+        }
+      }
+    ]
+  },
+  "owui_global_content": {
+    "type": "panel",
+    "layer": 24,
     "controls": [
       { "owui_bottomelement@owui-startscreen.owui_bottomelement": {}},
       { "owui_topelement@owui-startscreen.owui_topelement": {}},
       { "owui_leftelement@owui-startscreen.owui_leftelement": {}},
       { "debugmode@owuikernel_loader.debugmode": { "$is_startscreen": true }}
-    ]
-  },
-  "owui_bottomelement": {
-    "type": "panel",
-    "controls": [
-      { "owui_whitebar": {
-          "type": "image",
-          "texture": "textures/ui/White",
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "size": [ "125%", 100 ],
-          "offset": [ 0, 80 ],
-          "alpha": 0.7
-        }
-      },
-      { "owui_harlowlogo": {
-          "type": "image",
-          "texture": ".owui/owui-assets/harlowlogo",
-          "anchor_from": "bottom_left",
-          "anchor_to": "bottom_left",
-          "offset": [ 4 ,-2 ],
-          "size": [ 16, 16 ]
-        }
-      },
-      { "owui_version": {
-          "type": "label",
-          "color": "$0_color_format",
-          "text": "Project Overwhelm 0.1 Alpha",
-          "anchor_from": "bottom_left",
-          "anchor_to": "bottom_left",
-          "offset": [ 22, -8.5 ],
-          "font_type": "kazesawa",
-          "font_scale_factor": 1
-        }
-      },
-      { "owui_versionmc": {
-          "type": "label",
-          "color": "$0_color_format",
-          "text": "#text",
-          "anchor_from": "bottom_left",
-          "anchor_to": "bottom_left",
-          "offset": [ 22, -2 ],
-          "font_type": "kazesawa",
-          "font_scale_factor": 0.75,
-          "bindings": [
-            { "binding_name": "#version" },
-            { "binding_type": "view",
-              "source_property_name": "('Game Version: ' + #version + ' ( ©Mojang AB )')",
-              "target_property_name": "#text"
-            }
-          ]
-        }
-      }
     ]
   },
   "owui_topelement": {
@@ -69,7 +93,19 @@
       { "owui_xboxpanel@owui-startscreen.owui_xboxpanel": {} }
     ]
   },
+  "owui_bottomelement": {
+    "type": "panel",
+    "controls": [
+      { "owui_bottombar@owui-common.owui_bottombar": {} }
+    ]
+  },
   "owui_leftelement": {
+    "type": "panel",
+    "controls": [
+      { "owui_buttonmainelement@owui-startscreen.owui_buttonmainelement": {} }
+    ]
+  },
+  "owui_buttonmainelement": {
     "type": "stack_panel",
     "orientation": "vertical",
     "size": [ "100%", 32 ],
@@ -140,11 +176,12 @@
       }
     ]
   },
-  "owui_xboxpanel": {
+  "owui_xboxpanel@owuikernel_loader.fallbackconfig": {
     "type": "panel",
     "controls": [
       { "owui_xboxuserimageandusername": {
           "type": "image",
+          "ignored": "(not $xbox_nametag_display)",
           "size": [ "100%c + 4px", 22 ],
           "texture": "textures/ui/Black",
           "layer": 3,
