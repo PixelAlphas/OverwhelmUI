@@ -36,15 +36,15 @@
                 "$label_offset": [ 1, 0 ],
                 "$label_content_label": "localWorld.no_local_worlds_present",
                 "$label_content_content": "play.storage_location_dropdown_panel",
-                "$information_panel_label_text": "localWorld.no_local_worlds_present"/*,
+                "$information_panel_label_text": "localWorld.no_local_worlds_present",
                 "bindings": [
                   {
                     "binding_name": "#no_local_world_switch_visible",
                     "binding_name_override": "#visible"
                   }
-                ]*/
+                ]
               }
-            }/*,
+            },
             {
               "no_local_worlds_get_help@play.label_content_template": {
                 "size": [ "100% - 6px", "100%c + 1px" ],
@@ -61,17 +61,17 @@
                   }
                 ]
               }
-            }*/
+            }
           ]
         }
       }
-    ]/*,
+    ],
     "bindings": [
       {
         "binding_name": "#no_local_worlds_switch_setting_visible",
         "binding_name_override": "#visible"
       }
-    ]*/
+    ]
   },
   "owui_title": {
     "type": "label",
@@ -92,6 +92,21 @@
             { "worlds_scroll_content@owui-playscreen.worlds_scroll_content": {}}
           ]
         }
+      }
+    ]
+  },
+  "local_world_item_grid@play.world_item_grid_base": {
+    "type": "grid",
+    "size": [ "100%", "default" ],
+    "layer": 1,
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "grid_item_template": "play.local_world_item",
+    "grid_dimension_binding": "#local_world_item_grid_dimension",
+    "collection_name": "local_worlds",
+    "bindings": [
+      {
+        "binding_name": "#local_world_item_grid_dimension"
       }
     ]
   },
@@ -246,7 +261,7 @@
           "size": [ "100%", 2 ]
         }
       },
-      /*{
+      {
         "grid@play.local_world_item_grid": {
           "$tts_section_header": "playscreen.worlds",
           "variables": [
@@ -256,202 +271,23 @@
             }
           ]
         }
-      },*/
+      },
       {
         "no_local_worlds_label@play.label_content_template": {
           "ignored": "(not $local_world_upload)",
           "$label_content_label": "",
           "$label_content_content": "play.information_panel",
-          "$information_panel_label_text": "localWorld.no_local_world_label"/*,
+          "$information_panel_label_text": "localWorld.no_local_world_label",
           "bindings": [
             {
               "binding_name": "#no_local_worlds",
               "binding_name_override": "#visible"
             }
-          ]*/
+          ]
         }
       },
       {
         "no_local_worlds_switch_setting@owui-playscreen.no_local_worlds_switch_setting": {}
-      },
-      
-      {
-        "beta_retail_local_padding": {
-          "type": "panel",
-          "size": [ "100%", 4 ],
-          "bindings": [
-            {
-              "binding_name": "#beta_retail_local_worlds_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "beta_retail_local_worlds_label@play.world_list_label_panel": {
-          "$label_text": "playscreen.worlds",
-          "bindings": [
-            {
-              "binding_name": "#beta_retail_local_worlds_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "beta_retail_local_grid@play.beta_retail_local_world_item_grid": {
-          "$tts_section_header": "playscreen.worlds"
-        }
-      },
-      {
-        "loading_legacy_worlds_panel_padding": {
-          "ignored": "(not $supports_legacy_worlds)",
-          "type": "panel",
-          "size": [ "100%", 4 ],
-          "bindings": [
-            {
-              "binding_name": "#sync_legacy_worlds_button_visible",
-              "binding_name_override": "#visible",
-              "binding_type": "global"
-            }
-          ]
-        }
-      },
-      {
-        "legacy_worlds_button": {
-          "type": "stack_panel",
-          "ignored": "$auto_fetch_legacy_worlds",
-          "controls": [
-            {
-              "legacy_worlds_label@play.world_list_label_panel": {
-                "$label_text": "playscreen.dontSeeLegacyWorlds",
-                "ignored": "(not $supports_legacy_worlds)",
-                "bindings": [
-                  {
-                    "binding_name": "#sync_legacy_worlds_button_visible",
-                    "binding_name_override": "#visible",
-                    "binding_type": "global"
-                  }
-                ]
-              }
-            },
-            {
-              "sync_legacy_worlds_button_panel": {
-                "ignored": "(not $supports_legacy_worlds)",
-                "type": "panel",
-                "layer": 1,
-                "size": [ "100%", "100%c + 4px" ],
-                "controls": [
-                  {
-                    "button@play.sync_legacy_worlds_button": {
-                      "layer": 1,
-                      "size": [ "100%", 30 ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "loading_legacy_worlds_panel@play.label_background": {
-          "size": [ "100%", "100%c - 12px" ],
-          "min_size": [ "100%", 39 ],
-          "controls": [
-            {
-              "loading_legacy_worlds_label@play.loading_label": {
-                "$message_binding_name": "#legacy_worlds_loading_display_message"
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ "100%", 4 ]
-              }
-            },
-            {
-              "progress_loading_bars@play.progress_loading_bars": {
-                "$visible_binding_name": "#loading_legacy_worlds_grid_visible"
-              }
-            }
-          ],
-          "bindings": [
-            {
-              "binding_name": "#loading_legacy_worlds_grid_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "padding_2": {
-          "type": "panel",
-          "size": [ "100%", 4 ],
-          "bindings": [
-            {
-              "binding_name": "#legacy_worlds_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "upgrade_legacy_worlds_label@play.world_list_label_with_color_panel": {
-          "$label_text": "#upgrade_legacy_text",
-          "$square_color": "$world_diskspace_editions_fill",
-          "variables": [
-            {
-              "requires": "$pre_release",
-              "$label_text": "playscreen.beta_legacy_worlds"
-            }
-          ],
-          "bindings": [
-            {
-              "binding_name": "#legacy_worlds_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "legacy_world_item_grid@play.legacy_world_item_grid": {
-          "$tts_section_header": "#upgrade_legacy_text",
-          "variables": [
-            {
-              "requires": "$pre_release",
-              "$tts_section_header": "playscreen.beta_legacy_worlds"
-            }
-          ]
-        }
-      },
-      {
-        "beta_retail_legacy_padding": {
-          "type": "panel",
-          "size": [ "100%", 4 ],
-          "bindings": [
-            {
-              "binding_name": "#beta_retail_legacy_worlds_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "beta_retail_legacy_worlds_label@play.world_list_label_panel": {
-          "$label_text": "#upgrade_legacy_text",
-          "bindings": [
-            {
-              "binding_name": "#beta_retail_legacy_worlds_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "beta_retail_legacy_grid@play.beta_retail_legacy_world_item_grid": {
-          "$tts_section_header": "#upgrade_legacy_text"
-        }
       },
       {
         "pad_hack_panel": {

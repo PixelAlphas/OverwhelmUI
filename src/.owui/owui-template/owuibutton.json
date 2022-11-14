@@ -73,6 +73,91 @@
       }
     ]
   },
+  "dark_button_assets@common.button": {
+    "$default_button_texture|default": "textures/ui/button_borderless_dark",
+    "$hover_button_texture|default": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture|default": "textures/ui/button_borderless_darkpressed",
+    "$locked_button_texture|default": "textures/ui/disabledButtonNoBorder",
+    "locked_control": "locked",
+    "$locked_alpha": 1
+  },
+  "dark_content_button@owui-button.dark_content_button": {
+
+    "$button_offset|default": [ 0, 0 ],
+    "$button_pressed_offset|default": [ 0, 1 ],
+    "$pressed_alpha|default": 1,
+    "$button_type_panel|default": "common_buttons.button_content_panel",
+    "$button_content|default": "common.empty_panel",
+    "$button_state_panel|default": "common_buttons.new_ui_button_panel",
+
+    "$default_state|default": false,
+    "$hover_state|default": false,
+    "$pressed_state|default": false,
+    "$locked_state|default": false,
+
+    "$hover_button_image_fill|default": false,
+    "$hover_content_alpha|default": 1,
+    "$hover_button_image_color|default": [ 1.0, 1.0, 1.0 ],
+
+    "controls": [
+      {
+        "default@$button_state_panel": {
+          "$new_ui_button_texture": "$default_button_texture",
+          "$text_color": "$dark_button_default_text_color",
+          "$secondary_text_color": "$dark_button_secondary_default_text_color",
+          "$glyph_color": "$dark_glyph_default_color",
+          "$content_alpha": 1,
+          "$border_color": "$dark_border_default_color",
+          "$border_layer": 2,
+          "$default_state": true,
+          "layer": 1
+        }
+      },
+      {
+        "hover@$button_state_panel": {
+          "$new_ui_button_texture": "$hover_button_texture",
+          "$text_color": "$dark_button_hover_text_color",
+          "$secondary_text_color": "$dark_button_secondary_hover_text_color",
+          "$glyph_color": "$dark_glyph_hover_color",
+          "$content_alpha": "$hover_content_alpha",
+          "$border_color": "$dark_border_hover_color",
+          "$border_layer": 3,
+          "$hover_state": true,
+          "layer": 2,
+          "$button_image_fill": "$hover_button_image_fill",
+          "$button_image_color": "$hover_button_image_color"
+        }
+      },
+      {
+        "pressed@$button_state_panel": {
+          "$new_ui_button_texture": "$pressed_button_texture",
+          "$text_color": "$dark_button_pressed_text_color",
+          "$secondary_text_color": "$dark_button_secondary_pressed_text_color",
+          "$glyph_color": "$dark_glyph_pressed_color",
+          "$content_alpha": "$pressed_alpha",
+          "$button_offset": "$button_pressed_offset",
+          "$border_color": "$dark_border_pressed_color",
+          "$border_layer": 3,
+          "$pressed_state": true,
+          "layer": 3
+        }
+      },
+      {
+        "locked@$button_state_panel": {
+          "$new_ui_button_texture": "$locked_button_texture",
+          "$text_color": "$dark_button_locked_text_color",
+          "$secondary_text_color": "$dark_button_secondary_locked_text_color",
+          "$glyph_color": "$dark_glyph_locked_color",
+          "$content_alpha": "$locked_alpha",
+          "$border_color": "$dark_border_locked_color",
+          "$button_image": "common_buttons.locked_button_image",
+          "$border_layer": 1,
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
   "owui_buttoniconcontent": {
     "type": "panel",
     "layer": 3,

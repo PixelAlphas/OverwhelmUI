@@ -91,16 +91,16 @@
   
   // ----------------------------------
   
-  // - Critical Config -
-  // This is most critical config that it should be default
-  // various, changing to invaild values will result config
-  // unable to work and triggers the kernel fallback config.
-  // Fallback config will set everything to default upon booting
-  // the game up and refusing to read config. therefore
-  // **the configuration file is utter useless.**
-  
-  // Be cautious with what you've doing.
-  
+  /* [ Critical ]
+   * This is most critical config that it should be default
+   * various, changing to invaild values will result config
+   * unable to work and triggers the kernel fallback config.
+   * Fallback config will set everything to default upon booting
+   * the game up and refusing to read config. therefore
+   * **the configuration file is utter useless.**
+   *
+   * Be cautious with what you've doing.
+  */
     "$configname": "Default",
       // Your personal configuration name.
       // it doesn't matter if the name is default or not.
@@ -157,7 +157,6 @@
      * Changes how menu looks and its vibes, with the cost of performance.
     */
   // ----------------------------------
-  
   
     "$menu_background": true, // [ true ]
     /* - Menu Background (BG) -
@@ -216,6 +215,7 @@
        Bottom bar will turn from white to black, and various visuals
        improvement and enhancement for dark appearance.
        
+       ** Not implemented yet
        [!] Menu (and blur) background will be unaffected, this option is only
            for UI appearance. Use "Custom background path" for your own.
            *Overwhelm does not has its own dark menu background.*
