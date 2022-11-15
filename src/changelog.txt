@@ -1,4 +1,35 @@
 
+--- v0.1 Alpha 2.2 (Nov 16, 2022) ---
+/* -- Re-working UI's --
+ *
+ * Improvements and concepts art are being added.
+ * Arcaea's background will be removed soon hopefully.
+ *
+*/
+[=] Play Screen (World Section) 85% Complete
+[=] Play Screen 15% Complete
+[+] Improvements to Play Screen
+[+] Added the concepts buttons
+[+] Moved Player Screen (World Section) to its 
+    own section folder.
+[+] Temporarily disabled "contents.json" order to make
+    development easier
+[+] Added Temporarily modified vanilla buttons
+[+] Removed couples of unused files
+
+--- v0.1 Alpha 2.1 (Nov 12, 2022) ---
+/* -- Re-working UI's --
+ *
+ * Improvements and bug fixes, Appearance's is added.
+ * Working alot with config system and introduction
+ * of world screen.
+ *
+*/
+[+] Enabled Play Screen (World Sector), should able to
+    play the world now.
+[+] Adjustments to incompatible backgrounds
+[+] Dialog Concepts.
+
 --- v0.1 Alpha 2 (Nov 10, 2022) ---
 /* -- Re-working UI's --
  *

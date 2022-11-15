@@ -27,7 +27,7 @@
     "type": "image",
     "size": [ 250, 150 ],
     "texture": "textures/ui/hud_tip_text_background",
-    "alpha": 0.7,
+    "alpha": 0.6,
     "controls": [
       {
         "eie_warningicon": {

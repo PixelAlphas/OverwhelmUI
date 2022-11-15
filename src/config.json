@@ -141,6 +141,15 @@
        fallback detector, and so on.
     */
     
+    "$classic_mode": false, // [ false ]
+    /* - Classic LynxsiumUI -
+       OverwhelmUI was supposedly an installment to LynxsiumUI, one of my lost
+       project out there. enabling this option will enable the classic layouts
+       and its visuals identical to LynxsiumUI.
+       
+       ** Not implemented yet
+       [!] Be warned that any customization won't work.
+    */
     "$is_lite_mode": false, // [ false ]
     /* - Lite mode -
        Improvements to performance, disabling almost every unnecessary visuals.

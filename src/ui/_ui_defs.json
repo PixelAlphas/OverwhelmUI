@@ -10,6 +10,7 @@
     
     // /* Screen Assets */ //
     ".owui/owui-screen/owui-play_screen.json",
+    ".owui/owui-screen/owui-play_sections/owui-playscreen_world.json",
     ".owui/owui-screen/owui-start_screen.json"
     // /* Setting Assets */ //
     // /* Module Assets */ //

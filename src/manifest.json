@@ -1,7 +1,7 @@
 { "format_version": 2,
   "header": {
     "name": "Project Cyphisonia ( Overwhelm UI \"owui\" )",
-    "description": "A UI Resource pack from scratch for Lynxsium, since I lost my data.\nOct 3, 2022 - 0.01 Alpha build",
+    "description": "A UI Resource pack from scratch for Lynxsium, since I lost my data.\nNov 16, 2022 - v0.1-Alpha-2.2",
     "uuid": "15994e67-7f60-3bbf-7cb4-fd91ea6dc734",
     "version": [ 1, 0, 0 ],
     "min_engine_version": [ 1, 19, 20 ]

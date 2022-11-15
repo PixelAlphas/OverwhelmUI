@@ -77,7 +77,7 @@
     "type": "panel",
     "$owuivar_bartexture|default": "textures/ui/White",
     "$owuivar_logotexture|default": ".owui/owui-assets/harlowlogo",
-    "$owuivar_versiontext|default": "Project Overwhelm 0.1 Alpha",
+    "$owuivar_versiontext|default": "Project Overwhelm 0.1 Alpha 2.2",
     "$owuivar_screentitletext|default": "\"Main Menu\"",
     "$owuivar_novermc|default": false,
     "controls": [
