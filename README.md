@@ -12,6 +12,20 @@ It's pretty at alpha stage, so everything may subjects to change and may not rep
 * Customizable and shareable configuration contents.
 * Low-End support
 
+## Progress
+* Start Screen ~ 100% (for now)
+* Play Screen ~ 15% (World Section are 85%)
+* Setting Screen - 0%
+* Gameplay/Hud Screen - 0%
+
+## Goal of this
+* Adds massive customization so people can create their own theme and able to share.
+* Improving its Vanilla UI Optimization to work massively better with low-end devices.
+* User friendly, Clean UI and better options
+* Able to select and disable elements in hud screen, and few additional features
+* Developers friendly, allowing dev's to fork this UI and able to create their own with simplest code to begin with.
+* Texture pack developers friendly, providing any resources to be changed and thus may use "Java Edition" as resources source.
+
 ## Be warned.
 It's not really "beta" or "stable" releases, expect some issues like lagging issues, and horrible optimization.
 so don't expect high quality stability lol
