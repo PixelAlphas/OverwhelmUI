@@ -1,0 +1,31 @@
+{
+  "tab_top@common_tabs.base_tab": {
+    "$is_left_most_tab|default": false,
+    "$is_right_most_tab|default": false,
+    "variables": [
+      {
+        "requires": "($is_left_most_tab)",
+        "$unchecked_default_image": "textures/ui/TabTopBackLeftMost",
+        "$unchecked_hover_image": "textures/ui/TabTopBackLeftMostHover",
+        "$unchecked_locked_image": "textures/ui/TabTopBackLeftMost",
+        "$unchecked_locked_hover_image": "textures/ui/TabTopBackLeftMost",
+
+        "$checked_default_image": "textures/ui/TabTopFrontLeftMost",
+        "$checked_hover_image": "textures/ui/TabTopFrontLeftMostHover",
+        "$checked_locked_image": "textures/ui/TabTopFrontLeftMost",
+        "$checked_locked_hover_image": "textures/ui/TabTopFrontLeftMost"
+      },
+      {
+        "requires": "($is_right_most_tab)",
+        "$unchecked_default_image": "textures/ui/TabTopBackRightMost",
+        "$unchecked_hover_image": "textures/ui/TabTopBackRightMostHover",
+        "$unchecked_locked_image": "textures/ui/TabTopBackRightMost",
+        "$unchecked_locked_hover_image": "textures/ui/TabTopBackRightMost",
+        "$checked_default_image": "textures/ui/TabTopFrontRightMost",
+        "$checked_hover_image": "textures/ui/TabTopFrontRightMostHover",
+        "$checked_locked_image": "textures/ui/TabTopFrontRightMost",
+        "$checked_locked_hover_image": "textures/ui/TabTopFrontRightMost"
+      }
+    ]
+  }
+}

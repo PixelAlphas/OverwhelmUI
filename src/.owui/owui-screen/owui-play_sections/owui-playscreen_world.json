@@ -1,16 +1,13 @@
-{
-  "namespace": "owui-playscreen_world",
+{ "namespace": "owui-playscreen_world",
   "no_local_worlds_switch_setting": {
     "type": "panel",
     "size": [ "100%", "100%c" ],
     "ignored": "$education_edition",
     "controls": [
-      {
-        "bg@play.label_background": {
+      { "bg@owui-playscreen_world.label_background": {
           "size": [ "100%", "100%c" ],
           "controls": [
-            {
-              "no_local_worlds_switch_setting@play.label_content_template": {
+            { "no_local_worlds_switch_setting@play.label_content_template": {
                 "size": [ "100% - 6px", "100%c + 1px" ],
                 "offset": [ 0, 2 ],
                 "$label_offset": [ 1, 0 ],
@@ -18,15 +15,13 @@
                 "$label_content_content": "play.storage_location_dropdown_panel",
                 "$information_panel_label_text": "localWorld.no_local_worlds_present",
                 "bindings": [
-                  {
-                    "binding_name": "#no_local_world_switch_visible",
+                  { "binding_name": "#no_local_world_switch_visible",
                     "binding_name_override": "#visible"
                   }
                 ]
               }
             },
-            {
-              "no_local_worlds_get_help@play.label_content_template": {
+            { "no_local_worlds_get_help@play.label_content_template": {
                 "size": [ "100% - 6px", "100%c + 1px" ],
                 "offset": [ 0, 2 ],
                 "$label_offset": [ 1, 0 ],
@@ -35,8 +30,7 @@
                 "$label_content_content": "play.no_local_worlds_launch_help",
                 "$information_panel_label_text": "#no_local_worlds_help_label",
                 "bindings": [
-                  {
-                    "binding_name": "#no_local_world_help_visible",
+                  { "binding_name": "#no_local_world_help_visible",
                     "binding_name_override": "#visible"
                   }
                 ]
@@ -47,11 +41,14 @@
       }
     ],
     "bindings": [
-      {
-        "binding_name": "#no_local_worlds_switch_setting_visible",
+      { "binding_name": "#no_local_worlds_switch_setting_visible",
         "binding_name_override": "#visible"
       }
     ]
+  },
+  "label_background": {
+    "type": "image",
+    "texture": ".owui/owui-assets/dialogs/darktheme_regular_dialog"
   },
   "owui_worldsections_content": {
     "type": "panel",
@@ -65,24 +62,34 @@
       }
     ]
   },
+  "owui_sections_panel": {
+    "type": "panel"
+  },
   "local_world_item": {
     "type": "stack_panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "layer": 1,
+    "offset": [ 0, 0 ],
     "size": [ "100%", 29 ],
     "orientation": "horizontal",
     "$local_world_edit_button_visible|default": true,
     "controls": [
-      {
-        "header_button_panel@play.header_button_panel": {
-          "layer": 1,
-          "size": [ "100%", "100% + 1px" ],
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
-          "$primary_header_button": "owui-playscreen_world.owui_localworlditembutton",
-          "$secondary_header_button": "owui-playscreen_world.owui_editworldstackpanel",
-          "$secondary_visible": "$local_world_edit_button_visible"
+      { "world_button": {
+          "type": "panel",
+          "size": [ "fill", "100% + 1px" ],
+          "controls": [
+            { "h@owui-playscreen_world.owui_localworlditembutton": {}}
+          ]
+        }
+      },
+      { "edit_button": {
+          "type": "panel",
+          "offset": [ 1, 0 ],
+          "size": [ "100%y - 0.5px", "100% + 1px" ],
+          "controls": [
+            { "h@owui-playscreen_world.local_world_edit_button": {}}
+          ]
         }
       }
     ]
@@ -97,13 +104,12 @@
     "grid_dimension_binding": "#local_world_item_grid_dimension",
     "collection_name": "local_worlds",
     "bindings": [
-      {
-        "binding_name": "#local_world_item_grid_dimension"
-      }
+      { "binding_name": "#local_world_item_grid_dimension" }
     ]
   },
   "local_world_edit_button@owui-button.dark_glyph_button": {
     "size": [ "100%y", "100%" ],
+    "offset": [ 0, 0 ],
     "$pressed_button_name": "button.menu_local_world_item_edit",
     "$button_content": "play.edit_icon",
     "$button_tts_header": "accessibility.play.editWorld",
@@ -116,7 +122,7 @@
   },
   "owui_editworldstackpanel@play.cloud_upload_and_edit_world_stack_panel": {
     "controls": [
-      { "edit@owui-playscreen.local_world_edit_button": {}}
+      { "edit@owui-playscreen_world.local_world_edit_button": {}}
     ]
   },
   "owui_localworlditembutton@owui-button.dark_content_button": {
@@ -162,7 +168,7 @@
                   {
                     "scrolling_panel@play.scrolling_offsets": {
                       "layer": 1,
-                      "$scrolling_content": "owui-playscreen.common_scroll_pane"
+                      "$scrolling_content": "owui-playscreen_world.owuiworld_commonscrollpanels"
                     }
                   }
                 ]
@@ -173,7 +179,7 @@
       }
     ]
   },
-  "common_scroll_pane": {
+  "owuiworld_commonscrollpanels": {
     "type": "panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
@@ -188,73 +194,15 @@
     "orientation": "vertical",
     "size": [ "100%", "100%c" ],
     "controls": [
-      {
-        "padding_0": {
-          "type": "panel",
-          "size": [ "100%", 2 ]
-        }
-      },
-      {
-        "world_list_label_panel@owuikernel_loader.fallbackconfig": {
-          "type": "panel",
-          "size": [ "100%", 14 ],
+      { "padding_0": { "type": "panel", "size": [ "100%", 2 ] }},
+      { "worldlabel@owui-common.label_bgtext": {
           "$label_text": "playscreen.worlds",
-          "variables": [
-            {
-              "requires": "$pre_release",
-              "$label_text": "playscreen.beta_worlds"
-            }
-          ],
-          "controls": [
-            {
-              "background": {
-                "type": "image",
-                "texture": "textures/ui/hud_tip_text_background",
-                "size": [ "100%", "100%" ],
-                "ignored": "($dark_appearance)",
-                "alpha": 0.6
-              }
-            },
-            {
-              "list_label": {
-                "type": "label",
-                "color": "$main_header_text_color",
-                "size": [ "100%", 10 ],
-                "offset": [ 4, 0 ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "font_type": "MinecraftTen",
-                "text": "$label_text"
-              }
-            },
-            {
-              "outline": {
-                "type": "image",
-                "texture": "textures/ui/White",
-                "size": [ "100%", 1 ],
-                "anchor_from": "bottom_middle",
-                "anchor_to": "bottom_middle",
-                "ignored": "(not $dark_appearance)",
-                "offset": [ 0, -1 ]
-              }
-            }
-          ],
           "bindings": [
-            {
-              "binding_name": "#local_worlds_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "padding_1": {
-          "type": "panel",
-          "size": [ "100%", 2 ]
-        }
-      },
-      {
-        "grid@owui-playscreen_world.local_world_item_grid": {
+          { "binding_name": "#local_worlds_visible",
+            "binding_name_override": "#visible"
+      }]}},
+      { "padding_1": { "type": "panel", "size": [ "100%", 2 ] }},
+      { "worldgrid@owui-playscreen_world.local_world_item_grid": {
           "$tts_section_header": "playscreen.worlds",
           "variables": [
             {
@@ -264,28 +212,8 @@
           ]
         }
       },
-      {
-        "no_local_worlds_label@play.label_content_template": {
-          "ignored": "(not $local_world_upload)",
-          "$label_content_label": "",
-          "$label_content_content": "play.information_panel",
-          "$information_panel_label_text": "localWorld.no_local_world_label",
-          "bindings": [
-            {
-              "binding_name": "#no_local_worlds",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "no_local_worlds_switch_setting@owui-playscreen.no_local_worlds_switch_setting": {}
-      },
-      {
-        "pad_hack_panel": {
-          "type": "panel",
-          "size": [ "100%", 3 ]
-        }
+      { "no_local_worlds_switch_setting@owui-playscreen_world.no_local_worlds_switch_setting": {}},
+      { "pad_hack_panel": { "type": "panel", "size": [ "100%", 3 ]}
       }
     ]
   }

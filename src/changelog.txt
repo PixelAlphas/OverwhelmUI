@@ -1,4 +1,19 @@
 
+--- v0.1 Alpha 2.3 (Nov 23, 2022) ---
+/* -- UI Updates --
+ *
+ * Improvements to its stability, removed concepts art.
+ * few UI components are being added.
+ * No configuration update, this is purely play screen.
+*/
+
+[+] Play Screen - Added Tabs for allowing to play servers
+                  and realms. World screen is completed!
+[+] Play Screen 65% Complete
+[+] Optimized few UI's to work alot better
+[+] Added the concepts button fully in the play screen
+[+] Added Vanilla's controller scheme support
+
 --- v0.1 Alpha 2.2 (Nov 16, 2022) ---
 /* -- Re-working UI's --
  *

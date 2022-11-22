@@ -2,14 +2,329 @@
   "namespace": "owui-playscreen",
   "owui_playscreen_common_panel": {
     "type": "panel",
-    "size": "$play_screen_size"
+    "size": [ "100% - 135px", "100% - 20px" ],
+    "offset": [ 0, -25 ],
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right"
+  },
+  "common_tab_content_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "content@$scroll_tab_content": {
+          "layer": 2,
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "100%", "100%" ],
+          "offset": [ 0, 6 ],
+          "ttsSectionContainer": true
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$visible_bind_toggle_source_control",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "play_screen_panel@owui-playscreen.owui_playscreen_common_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "tab_content_panel@$tab_content_panel": {
+          "layer": 2
+        }
+      },
+      {
+        "gamepad_helper_left_bumper@common.gamepad_helper_left_bumper": {
+          "offset": [ -1, 0 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_right",
+          "$hide_description": true,
+          "bindings": [
+            {
+              "binding_name": "#bumper_tooltips_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "gamepad_helper_right_bumper@common.gamepad_helper_right_bumper": {
+          "offset": [ 1, 0 ],
+          "anchor_from": "top_right",
+          "anchor_to": "top_left",
+          "$hide_description": true,
+          "bindings": [
+            {
+              "binding_name": "#bumper_tooltips_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "keyboard_helper_left_bracket@common.keyboard_left_trigger": {
+          "offset": [ -1, 0 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_right",
+          "$hide_description": true,
+          "$text_color": [ 1, 1, 1 ]
+        }
+      },
+      {
+        "keyboard_helper_right_bracket@common.keyboard_right_trigger": {
+          "offset": [ 1, 0 ],
+          "anchor_from": "top_right",
+          "anchor_to": "top_left",
+          "$hide_description": true,
+          "$text_color": [ 1, 1, 1 ]
+        }
+      }
+    ]
+  },
+  "tab_navigation_panel_layout": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "anchor_to": "top_middle",
+    "anchor_from": "top_middle",
+    "size": [ "100%", 30 ],
+    "controls": [
+      {
+        "navigation_tabs": {
+          "type": "panel",
+          "size": [ "fill", "100%" ],
+          "controls": [
+            {
+              "content@$navigation_tab": {
+                "anchor_to": "top_left",
+                "anchor_from": "top_left"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "owui_defaultplayscreenpanel@owui-playscreen.play_screen_panel": {
+    "$tab_content_panel": "owui-playscreen.default_tab_content_panel_layout"
+  },
+  "default_tab_content_panel_layout@play.common_tab_content_panel_type": {
+    "controls": [
+      { "worlds_tab_content@owui-playscreen.worlds_tab_content_panel": {} },
+      { "friends_tab_content@owui-playscreen.friends_tab_content_panel": {} },
+      { "server_tab_content_panel@owui-playscreen.server_tab_content_panel": {} },
+      { "info_tab_content@owui-playscreen.info_tab_content": {} }
+    ]
+  },
+  "owui_infomation_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "warningtext@owui-common.test_text": {
+          "type": "label",
+          "text": "Currently not available yet",
+          "offset": [ 0, 45 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+        }
+      }
+    ]
+  },/*
+  "tab_text_stack_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "fill", "100%" ],
+    "controls": [
+      {
+        "padding@common.empty_panel": {
+          "size": [ "100%", 1 ]
+        }
+      },
+      {
+        "text_section": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "text@play.common_button_text": {
+                "layer": 3,
+                "text": "$tab_text_name",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "offset": [ -1, 0 ],
+                "color": "$text_color"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "count_section": {
+          "type": "panel",
+          "size": [ "100%c", "100%c" ],
+          "variables": [
+            {
+              "requires": "$is_checked_state",
+              "$count_background_image": "textures/ui/numberBGFront",
+              "$count_text_color": "$secondary_text_color"
+            },
+            {
+              "requires": "($is_hover_state or not $is_checked_state)",
+              "$count_background_image": "textures/ui/numberBGBack",
+              "$count_text_color": "$text_color"
+            }
+          ],
+          "controls": [
+            {
+              "count_background_image": {
+                "type": "image",
+                "texture": "$count_background_image",
+                "size": [ "100%c + 3px", "100%c" ],
+                "offset": [ -1, -1 ],
+                "anchor_from": "bottom_right",
+                "anchor_to": "bottom_right",
+                "layer": 3,
+                "controls": [
+                  {
+                    "count@common_button_text": {
+                      "layer": 1,
+                      "offset": [ 1, 1 ],
+                      "text": "$count_text_name",
+                      "color": "$count_text_color",
+                      "bindings": [
+                        {
+                          "binding_name": "$count_text_name"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "common_navigation_tab_content": {
+    "type": "stack_panel",
+    "size": [ "100%-3px", "100% - 4px" ],
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "padding_0": {
+          "type": "panel",
+          "size": [ 2, "100%" ]
+        }
+      },
+      {
+        "icon_section": {
+          "type": "panel",
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            {
+              "icon@$tab_icon": {
+                "layer": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding_1": {
+          "type": "panel",
+          "size": [ 2, "100%" ]
+        }
+      },
+      {
+        "count_text@play.tab_text_stack_panel": {}
+      }
+    ]
+  },*/
+  "worlds_tab_content_panel@owui-playscreen.common_tab_content_panel": {
+    "$visible_bind_toggle_source_control": "world_navigation_tab_toggle",
+    "$scroll_tab_content": "owui-playscreen_world.owui_worldsections_content"
+  },
+  "friends_tab_content_panel@owui-playscreen.common_tab_content_panel": {
+    "$visible_bind_toggle_source_control": "friends_navigation_tab_toggle",
+    "$scroll_tab_content": "owui-playscreen_friend.friends_scroll_content"
+  },
+  "server_tab_content_panel@owui-playscreen.common_tab_content_panel": {
+    "$visible_bind_toggle_source_control": "server_navigation_tab_toggle",
+    "$scroll_tab_content": "play.server_scroll_content"
+  },
+  "info_tab_content@owui-playscreen.common_tab_content_panel": {
+    "$visible_bind_toggle_source_control": "info_navigation_tab_toggle",
+    "$scroll_tab_content": "owui-playscreen.owui_infomation_content"
+  },
+  "top_tab@owui-button.playtab": {
+    "$toggle_tts_enabled_binding_type": "global",
+    "$radio_toggle_group": true,
+    "$toggle_name": "navigation_tab",
+    "$toggle_group_default_selected": "$default_tab",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "$toggle_tts_type_priority": 1001,
+    "$toggle_tts_toggle_on_text": "",
+    "$toggle_tts_toggle_off_text": "",
+    "$toggle_tts_index_priority": 1002
+  },
+  "info_navigation_tab@owui-playscreen.top_tab": {
+    "$tab_view_binding_name": "info_navigation_tab_toggle",
+    "$tab_icon": "worlds_icon",
+    "$count_text_name": "FOR WHAT",
+    "$tab_text_name": "Information",
+    "$toggle_group_forced_index": 3,
+    "$tab_content": "play.common_navigation_tab_content"
+  },
+  "world_navigation_tab@owui-playscreen.top_tab": {
+    "$is_left_most_tab": true,
+    "$tab_view_binding_name": "world_navigation_tab_toggle",
+    "$tab_icon": "worlds_icon",
+    "$count_text_name": "#world_item_count",
+    "$tab_text_name": "selectWorld.tab.worlds",
+    "$toggle_group_forced_index": 0,
+    "$tab_content": "play.common_navigation_tab_content",
+    "variables": [
+      {
+        "requires": "$is_editor_mode_enabled",
+        "$tab_text_name": "playscreen.editor.worlds"
+      }
+    ]
+  },
+  "friends_navigation_tab@owui-playscreen.top_tab": {
+    "$tab_view_binding_name": "friends_navigation_tab_toggle",
+    "$tab_icon": "friends_icon_2",
+    "$tab_icon_2": "friends_icon_1",
+    "$tab_icon_nobounce": "friends_icon_2",
+    "$tab_icon_nobounce_2": "friends_icon_1",
+    "$tab_icon_notification": "invite_icon",
+    "$visibility_binding_override_name": "#friends_tab_show_bouncing",
+    "$visibility_binding_override_name_nobounce": "#friends_tab_show_not_bouncing",
+    "$visibility_binding_override_name_notification": "#friends_tab_show_invites",
+    "$count_text_name": "#friend_world_item_count",
+    "$tab_text_name": "selectWorld.tab.friends",
+    "$toggle_group_forced_index": 1,
+    "$tab_content": "play.friends_navigation_tab_content"
+  },
+  "server_navigation_tab@owui-playscreen.top_tab": {
+    "$tab_view_binding_name": "server_navigation_tab_toggle",
+    "$tab_icon": "server_tab_icon",
+    "$count_text_name": "#server_world_item_count",
+    "$tab_text_name": "selectWorld.tab.thirdParty",
+    "$toggle_group_forced_index": 2,
+    "$tab_content": "play.common_navigation_tab_content"
   },
   "owui_playscreen_content": {
     "type": "panel",
     "controls": [
       { "owui_bottombar@owui-common.owui_bottombar": { "$owuivar_screentitletext": "\"Play selection\"", "$owuivar_novermc": true } },
       { "owui_buttonmainelement@owui-playscreen.owui_buttonmainelement": {}},
-      { "owui_worldsections_content@owui-playscreen_world.owui_worldsections_content": {}},
+      { "owui_defaultplayscreenpanel@owui-playscreen.owui_defaultplayscreenpanel": {}},
       { "owui_title@owui-playscreen.owui_title": {}}
     ]
   },
@@ -33,12 +348,47 @@
   "owui_buttonmainelement": {
     "type": "stack_panel",
     "orientation": "vertical",
-    "size": [ "100%", 32 ],
+    "size": [ 125, 32 ],
     "offset": [ 4, -50 ],
     "layer": 3,
     "anchor_from": "left_middle",
     "anchor_to": "left_middle",
     "controls": [
+      {
+        "world_navigation_tab@owui-playscreen.world_navigation_tab": {
+          "size": [ "100%", 25 ]
+        }
+      },
+      {
+        "friends_navigation_tab@owui-playscreen.friends_navigation_tab": {
+          "size": [ "100%", 25 ]
+        }
+      },
+      {
+        "server_navigation_tab@owui-playscreen.server_navigation_tab": {
+          "size": [ "100%", 25 ]
+        }
+      },
+      {
+        "info_navigation_tab@owui-playscreen.info_navigation_tab": {
+          "size": [ "100%", 25 ]
+        }
+      },
+      {
+        "puddingwithline": {
+          "type": "panel",
+          "size": [ "100%", 3 ],
+          "controls": [
+            {
+              "theline": {
+                "type": "image",
+                "texture": "textures/ui/White",
+                "size": [ "default", 1 ]
+              }
+            }
+          ]
+        }
+      },
       {
         "createworld@owui-button.owui_lightglyphbutton": {
           "size": [ 125, 25 ],
@@ -49,13 +399,18 @@
           "$owui_iconimagepressed": ".owui/owui-assets/glyphs/buttonicons/start_screen/play_hover",
           "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/play",
           "variables": [
-            {
-              "requires": "($local_world_upload)",
+            { "requires": "($local_world_upload)",
               "$pressed_button_name": "button.new_world_upload"
             },
-            {
-              "requires": "(not $local_world_upload)",
+            { "requires": "(not $local_world_upload)",
               "$pressed_button_name": "button.menu_local_world_create"
+            }
+          ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "world_navigation_tab_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
             }
           ]
         }
@@ -69,7 +424,52 @@
           "$owui_text": "menu.quickplay",
           "$owui_textdesc": "Shortcut for quick play.",
           "$owui_iconimagepressed": ".owui/owui-assets/glyphs/buttonicons/start_screen/play_hover",
-          "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/play"
+          "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/play",
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "world_navigation_tab_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "addfriend@owui-button.owui_lightglyphbutton": {
+          "size": [ 125, 25 ],
+          "$pressed_button_name": "button.menu_network_add_friend",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$owui_text": "networkWorld.add_friend",
+          "$owui_textdesc": "Add friends via Xbox",
+          "$owui_iconimagepressed": ".owui/owui-assets/glyphs/buttonicons/start_screen/play_hover",
+          "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/play",
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "friends_navigation_tab_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "joinbycode@owui-button.owui_lightglyphbutton": {
+          "size": [ 125, 25 ],
+          "$pressed_button_name": "button.menu_network_join_by_code",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$owui_text": "networkWorld.joinByCode",
+          "$owui_textdesc": "Join realm using code",
+          "$owui_iconimagepressed": ".owui/owui-assets/glyphs/buttonicons/start_screen/play_hover",
+          "$owui_iconimage": ".owui/owui-assets/glyphs/buttonicons/start_screen/play",
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "friends_navigation_tab_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
         }
       }
     ]

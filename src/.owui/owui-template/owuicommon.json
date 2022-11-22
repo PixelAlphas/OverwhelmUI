@@ -14,6 +14,47 @@
       }
     ]
   },
+  "label_bgtext@owuikernel_loader.fallbackconfig": {
+    "type": "panel",
+    "size": [ "100%", 14 ],
+    "$label_text|default": "...?",
+    "variables": [
+      { "requires": "$pre_release",
+        "$label_text": "playscreen.beta_worlds"
+      }
+    ],
+    "controls": [
+      { "background": {
+          "type": "image",
+          "texture": "textures/ui/hud_tip_text_background",
+          "size": [ "100%", "100%" ],
+          "ignored": "($dark_appearance)",
+          "alpha": 0.6
+        }
+      },
+      { "list_label": {
+          "type": "label",
+          "color": "$main_header_text_color",
+          "size": [ "100%", 10 ],
+          "offset": [ 4, 0 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "font_type": "MinecraftTen",
+          "text": "$label_text"
+        }
+      },
+      { "outline": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "size": [ "100%", 1 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "ignored": "(not $dark_appearance)",
+          "offset": [ 0, -1 ]
+        }
+      }
+    ]
+  },
   "bg@owuikernel_loader.fallbackconfig": {
     "type": "panel",
     "$owuivar_isblurbg|default": false,

@@ -143,6 +143,41 @@
       }
     ]
   },
+  "playtab@common_tabs.base_tab": {
+    "$unchecked_default_image": ".owui/owui-assets/buttons/global/dark_button",
+    "$unchecked_hover_image": ".owui/owui-assets/buttons/global/dark_button_hover",
+    "$unchecked_locked_image": ".owui/owui-assets/buttons/global/dark_button",
+    "$unchecked_locked_hover_image": ".owui/owui-assets/buttons/global/dark_button",
+    "$checked_default_image": ".owui/owui-assets/buttons/global/origin_button",
+    "$checked_hover_image": ".owui/owui-assets/buttons/global/origin_button_hover",
+    "$checked_locked_image": ".owui/owui-assets/buttons/global/origin_button",
+    "$checked_locked_hover_image": ".owui/owui-assets/buttons/global/origin_button",
+    
+    "$unchecked_text_color": "$tab_unchecked_text_color",
+    "$unchecked_hover_text_color": "$tab_unchecked_hover_text_color",
+    "$unchecked_locked_text_color": "$tab_unchecked_locked_text_color",
+    "$unchecked_locked_hover_text_color": "$tab_unchecked_locked_hover_text_color",
+    "$checked_text_color": "$tab_checked_text_color",
+    "$checked_hover_text_color": "$tab_checked_hover_text_color",
+    "$checked_locked_text_color": "$tab_checked_locked_text_color",
+    "$checked_locked_hover_text_color": "$tab_checked_locked_hover_text_color",
+    "$unchecked_secondary_text_color": "$tab_secondary_unchecked_text_color",
+    "$unchecked_hover_secondary_text_color": "$tab_secondary_unchecked_hover_text_color",
+    "$unchecked_locked_secondary_text_color": "$tab_secondary_unchecked_locked_text_color",
+    "$unchecked_locked_hover_secondary_text_color": "$tab_secondary_unchecked_locked_hover_text_color",
+    "$checked_secondary_text_color": "$tab_secondary_checked_text_color",
+    "$checked_hover_secondary_text_color": "$tab_secondary_checked_hover_text_color",
+    "$checked_locked_secondary_text_color": "$tab_secondary_checked_locked_text_color",
+    "$checked_locked_hover_secondary_text_color": "$tab_secondary_checked_locked_hover_text_color",
+    "$unchecked_glyph_color": "$tab_unchecked_glyph_color",
+    "$unchecked_hover_glyph_color": "$tab_unchecked_hover_glyph_color",
+    "$unchecked_locked_glyph_color": "$tab_unchecked_locked_glyph_color",
+    "$unchecked_locked_hover_glyph_color": "$tab_unchecked_locked_hover_glyph_color",
+    "$checked_glyph_color": "$tab_checked_glyph_color",
+    "$checked_hover_glyph_color": "$tab_checked_hover_glyph_color",
+    "$checked_locked_glyph_color": "$tab_checked_locked_glyph_color",
+    "$checked_locked_hover_glyph_color": "$tab_checked_locked_hover_glyph_color"
+  },
   "dark_content_button@owui-button.dark_button_assets": {
 
     "$button_offset|default": [ 0, 0 ],
