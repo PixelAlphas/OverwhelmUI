@@ -167,7 +167,7 @@
     */
   // ----------------------------------
   
-    "$menu_background": true, // [ true ]
+    "$menu_background": false, // [ false ]
     /* - Menu Background (BG) -
        essentially displays background image in outgame, such as
        start screen, settings, world menu, and etc.

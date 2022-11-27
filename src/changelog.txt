@@ -1,4 +1,24 @@
 
+--- v0.1 Alpha 2.4 (Nov 27, 2022) ---
+/* -- UI Updates --
+ *
+ * Improvements to its stability and better visuality.
+ *
+*/
+
+[+] Added better visuals on play screen's tab,
+    added icons on selection buttons.
+[+] Friends/Realms section is finished!
+[+] Play screen are 80% completed!
+[+] Removed the background because i don't want any DMCA
+    - Background can be re-enabled, but you'll need
+      to use custom background via configuration.
+    - ^ same as blur background
+    - To prevent pink and black texture occurs when
+      background/blur is enabled, you'll see the
+      s t r e t c h e d   f r o g instead.
+[+] Optimizations and few tweaks.
+
 --- v0.1 Alpha 2.3 (Nov 23, 2022) ---
 /* -- UI Updates --
  *

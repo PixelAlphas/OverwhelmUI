@@ -24,7 +24,7 @@
         "$example|default": false,
         "$is_debug|default": false,
         "$is_lite_mode|default": false,
-        "$menu_background|default": true,
+        "$menu_background|default": false,
         "$custom_bg_path|default": "",
         "$custom_bgblur_path|default": "",
         "$xbox_nametag_display|default": true,
@@ -38,7 +38,7 @@
         "$example|default": false,
         "$is_debug|default": false,
         "$is_lite_mode|default": false,
-        "$menu_background|default": true,
+        "$menu_background|default": false,
         "$custom_bg_path|default": "",
         "$custom_bgblur_path|default": "",
         "$xbox_nametag_display|default": true,
@@ -113,7 +113,7 @@
                 "anchor_from": "$textanchor",
                 "anchor_to": "$textanchor",
                 "variables": [
-                  { "requires": "( (not($example)) and (not($is_lite_mode)) and ($menu_background) and ($custom_bg_path = '') and ($custom_bg_path = '') and ($xbox_nametag_display))",
+                  { "requires": "( (not($example)) and (not($is_lite_mode)) and (not($menu_background)) and ($custom_bg_path = '') and ($custom_bg_path = '') and ($xbox_nametag_display))",
                     "$textconfig": "Default Config: §aTrue"
                   }
                 ]

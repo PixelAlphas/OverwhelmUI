@@ -7,7 +7,7 @@
       { "requires": "(not $education_edition)",
         "$globalui_panel": "owui-startscreen.owui_global_content"
       },
-      { "requires": "$education_edition",
+      { "requires": "($education_edition) or ($is_ps4) or ($nx_os)",
         "$globalui_panel": "owui-startscreen.owui_edu_incompatible"
       }
     ],
@@ -29,8 +29,7 @@
     "texture": "textures/ui/hud_tip_text_background",
     "alpha": 0.6,
     "controls": [
-      {
-        "eie_warningicon": {
+      { "eie_warningicon": {
           "type": "image",
           "size": [ 32, 32 ],
           "texture": ".owui/owui-assets/majorwarning",
@@ -39,10 +38,9 @@
           "offset": [ 0, 4 ]
         }
       },
-      {
-        "eie_title": {
+      { "eie_title": {
           "type": "label",
-          "text": "Incompatible with EDU version!",
+          "text": "Incompatible!",
           "offset": [ 0, 40 ],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
@@ -51,8 +49,7 @@
           "shadow": true
         }
       },
-      {
-        "eie_titleline": {
+      { "eie_titleline": {
           "type": "image",
           "offset": [ 0, 58 ],
           "size": [ "95%", 1 ],
@@ -62,17 +59,25 @@
           "texture": "textures/ui/White"
         }
       },
-      {
-        "eie_description": {
+      { "eie_description": {
           "type": "label",
-          "text": "It appears that you've running the game in education edition. this is disappointing because that is extremely incompatible and its known as super late version. I appreciate your time with messing around education edition. therefore, §cThis UI is incompatible.",
-          "offset": [ 0, 64],
+          "$owui_text|default": "It appears that you've running the game in education edition. this is disappointing because that is extremely incompatible and its known as super late version. I appreciate your time with messing around education edition. therefore, §cThis UI is incompatible.",
+          "text": "$owui_text",
+          "offset": [ 0, 64 ],
           "text_alignment": "center",
           "size": [ "95%", "65%" ],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
           "font_type": "kazesawa",
-          "shadow": true
+          "shadow": true,
+          "variables": [
+            { "requires": "$is_ps4",
+              "$owui_text": "It appears that you've running the game in console, sorry to disappoint you but overwhelm does not compatible well. even though the controllers are greatly supported but its difficult to get things done. therefore, §cThis UI is incompatible."
+            },
+            { "requires": "$nx_os",
+              "$owui_text": "It appears that you've running on Nintendo switch and likely jailbreak. unfortunately, even the switch is completely playable, but sadly. it is not. Bedrock on switch isnt optimized, and so do UI. therefore, §cThis UI is incompatible."
+            }
+          ]
         }
       }
     ]

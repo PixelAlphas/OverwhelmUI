@@ -59,8 +59,7 @@
     "type": "panel",
     "$owuivar_isblurbg|default": false,
     "controls": [
-      {
-        "gradient": {
+      { "gradient": {
           "type": "custom",
           "size": [ "45%", "100%" ],
           "gradient_direction": "horizontal",
@@ -72,8 +71,7 @@
           "anchor_to": "left_middle"
         }
       },
-      {
-        "bgblur": {
+      { "bgblur": {
           "type": "image",
           "size": [ "100%", "100%" ],
           "texture": "$menubgblur",
@@ -92,8 +90,7 @@
           ]
         }
       },
-      {
-        "bg": {
+      { "bg": {
           "type": "image",
           "size": [ "100%", "100%" ],
           "texture": "$menubg",
@@ -101,12 +98,10 @@
           "ignored": "(not $menu_background)",
           "fill": true,
           "variables": [
-            {
-              "requires": "($custom_bg_path = '')",
+            { "requires": "($custom_bg_path = '')",
               "$menubg": ".owui/owui-assets/bg"
             },
-            {
-              "requires": "(not($custom_bg_path = ''))",
+            { "requires": "(not($custom_bg_path = ''))",
               "$menubg": "$custom_bg_path"
             }
           ]
@@ -118,7 +113,7 @@
     "type": "panel",
     "$owuivar_bartexture|default": "textures/ui/White",
     "$owuivar_logotexture|default": ".owui/owui-assets/harlowlogo",
-    "$owuivar_versiontext|default": "Project Overwhelm 0.1 Alpha 2.2",
+    "$owuivar_versiontext|default": "Project Overwhelm 0.1 Alpha 2.4",
     "$owuivar_screentitletext|default": "\"Main Menu\"",
     "$owuivar_novermc|default": false,
     "controls": [
