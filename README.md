@@ -4,6 +4,7 @@ This features cleans UI for small devices and large devices, with controller sup
 This UI is developed on the phone. no any PC assistants etc. just, phone.
 
 It's pretty at alpha stage, so everything may subjects to change and may not represent final release until beta stage.
+Discord Link - https://discord.gg/KKnfs6fve2
 
 ## What's in it?
 ( Like I said, alpha stage. )
