@@ -1,4 +1,7 @@
 ## Project Overwhelm.
+
+This project is cancelled due to a UI that was really familiar to mine and has been existed for many months before this project even begin. I've just found it out recently so. not to start any thief layout wars, I decided to cancel it any further problems. There'll be a new UI upcoming by me with different layout and better navigation. Which, pretty soon.
+
 Overwhelm UI is essentially custom MCBE UI, better known as JSON-UI.
 This features cleans UI for small devices and large devices, with controller supports and customization friendly.
 This UI is developed on the phone. no any PC assistants etc. just, phone.
